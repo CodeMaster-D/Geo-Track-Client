@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Select from "react-select";
-import { IoMdClose } from "react-icons/io";
-import debounce from "lodash.debounce";
-import { getGeoLocation } from "../../fetchApi";
-import { FaMapMarkedAlt, FaRoute } from "react-icons/fa";
-import { HiLocationMarker } from "react-icons/hi";
-import { Controller, useForm } from "react-hook-form";
+import React, { useEffect, useState } from 'react';
+import Select from 'react-select';
+import { IoMdClose } from 'react-icons/io';
+import debounce from 'lodash.debounce';
+import { getGeoLocation } from '../../fetchApi';
+import { FaMapMarkedAlt, FaRoute } from 'react-icons/fa';
+import { HiLocationMarker } from 'react-icons/hi';
+import { Controller, useForm } from 'react-hook-form';
 
 const Sidebar = ({
   onFindRoute,
@@ -20,7 +20,7 @@ const Sidebar = ({
   const [lonLatTo, setLonLatTo] = useState(null);
   const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [view, setView] = useState("initial"); // 'initial', 'route', 'location'
+  const [view, setView] = useState('initial'); // 'initial', 'route', 'location'
 
   const fetchOptions = debounce(async (query) => {
     if (!query) return;
@@ -29,11 +29,11 @@ const Sidebar = ({
       const response = await getGeoLocation(query);
       const data = response.map((item) => ({
         label: item.display_name,
-        value: item.lat + "," + item.lon,
+        value: item.lat + ',' + item.lon,
       }));
       setOptions(data);
     } catch (error) {
-      console.error("Error fetching data from API", error);
+      console.error('Error fetching data from API', error);
       setOptions([]);
     }
     setLoading(false);
@@ -44,46 +44,46 @@ const Sidebar = ({
   };
 
   const handleChangeFrom = (selectedOption) => {
-    const [lat, lon] = selectedOption.value.split(",");
+    const [lat, lon] = selectedOption.value.split(',');
     setLonLatFrom({ lat, lon });
   };
 
   const handleChangeTo = (selectedOption) => {
-    const [lat, lon] = selectedOption.value.split(",");
+    const [lat, lon] = selectedOption.value.split(',');
     setLonLatTo({ lat, lon });
   };
 
   const handleFindRoute = () => {
-    if (watch("from") && watch("to")) {
+    if (watch('from') && watch('to')) {
       onFindRoute({ from: lonLatFrom, to: lonLatTo });
       onClose();
     } else {
-      alert("Please select both start and end locations.");
+      alert('Please select both start and end locations.');
     }
   };
 
   useEffect(() => {
-    if (watch("from")) {
-      const [lat, lon] = watch("from").value.split(",");
+    if (watch('from')) {
+      const [lat, lon] = watch('from').value.split(',');
       setLonLatFrom({ lat, lon });
     }
-  }, [watch("from")]);
+  }, [watch('from')]);
 
   return (
     <div
       className={`fixed top-0 left-0 mt-5 bg-white rounded-2xl p-4 z-10 transition-transform duration-300 ease-in-out ${
-        isOpen ? "translate-x-0" : "-translate-x-96"
+        isOpen ? 'translate-x-0' : '-translate-x-96'
       }`}
-      style={{ width: "300px", marginLeft: "20px" }} // Adjust width, height, and margin
+      style={{ width: '300px', marginLeft: '20px' }} // Adjust width, height, and margin
       aria-hidden={!isOpen}
     >
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold mb-4">
-          {view === "initial"
-            ? "Pilih Pencarian"
-            : view === "route"
-            ? "Temukan Rute Lokasi"
-            : "Cari Lokasi"}
+          {view === 'initial'
+            ? 'menu'
+            : view === 'route'
+            ? 'Temukan Rute Lokasi'
+            : 'Pilih jenis peta'}
         </h2>
         <button
           onClick={onClose}
@@ -93,26 +93,28 @@ const Sidebar = ({
         </button>
       </div>
 
-      {view === "initial" && (
+      {view === 'initial' && (
         <div className="grid grid-cols-2 gap-2">
           <button
-            onClick={() => setView("route")}
+            onClick={() => setView('route')}
             className={`bg-white shadow-md p-2 py-4 rounded-lg flex flex-col gap-2 justify-center items-center min-h-16 hover:bg-gray-100`}
           >
             <FaRoute size={25} />
             <p className="text-sm font-bold">Pencarian Route</p>
           </button>
           <button
-            onClick={() => setView("variant")}
+            onClick={() => setView('variant')}
             className={`bg-white shadow-md p-2 py-4 rounded-lg flex flex-col gap-2 justify-center items-center min-h-16 hover:bg-gray-100`}
           >
             <FaMapMarkedAlt size={25} />
             <p className="text-sm font-bold">Jenis Peta</p>
           </button>
+          
         </div>
+        
       )}
 
-      {view === "route" && (
+      {view === 'route' && (
         <div>
           <div>
             <p className="text-sm text-gray-500">Dari</p>
@@ -164,7 +166,7 @@ const Sidebar = ({
 
           <div className="flex justify-between mt-5">
             <button
-              onClick={() => setView("initial")}
+              onClick={() => setView('initial')}
               className="text-black p-2 rounded-lg font-bold italic hover:underline text-sm"
             >
               Kembali
@@ -180,41 +182,41 @@ const Sidebar = ({
         </div>
       )}
 
-      {view === "variant" && (
+      {view === 'variant' && (
         <>
           <div className="grid grid-cols-2 gap-2">
             <div
               className={`flex flex-col items-center`}
-              onClick={() => setVariant("basic-v2")}
+              onClick={() => setVariant('basic-v2')}
             >
               <img
                 src="https://cloud.maptiler.com/static/img/maps/basic-v2.png?t=1713275643"
                 className={`rounded hover:shadow-lg ${
-                  variant === "basic-v2" && "border-2 border-black"
+                  variant === 'basic-v2' && 'border-2 border-black'
                 }`}
               />
               <p className="text-sm">Base Map</p>
             </div>
             <div
               className={`flex flex-col items-center`}
-              onClick={() => setVariant("streets")}
+              onClick={() => setVariant('streets')}
             >
               <img
                 src="https://cloud.maptiler.com/static/img/maps/streets-v2.png?t=1713275643"
                 className={`rounded hover:shadow-lg ${
-                  variant === "streets" && "border-2 border-black"
+                  variant === 'streets' && 'border-2 border-black'
                 }`}
               />
               <p className="text-sm">Street Map</p>
             </div>
             <div
               className={`flex flex-col items-center`}
-              onClick={() => setVariant("satellite/256")}
+              onClick={() => setVariant('satellite/256')}
             >
               <img
                 src="https://cloud.maptiler.com/static/img/maps/satellite.png?t=1713275643"
                 className={`rounded hover:shadow-lg ${
-                  variant === "satellite/256" && "border-2 border-black"
+                  variant === 'satellite/256' && 'border-2 border-black'
                 }`}
               />
               <p className="text-sm">Satelite Map</p>
@@ -222,7 +224,7 @@ const Sidebar = ({
           </div>
           <div className="flex justify-start mt-5">
             <button
-              onClick={() => setView("initial")}
+              onClick={() => setView('initial')}
               className="text-black p-2 rounded-lg font-bold italic hover:underline text-sm"
             >
               Kembali
