@@ -46,3 +46,7 @@ Based on the project title, here are some features that might be implemented:
     * `npm run dev` or `yarn dev`
 5.  **Open in Browser:**
     * Open your browser and access the application at the URL provided by Vite (usually `http://localhost:5173/`).
+
+## License
+
+This project is licensed under the **Apache License 2.0**—see the **[LICENSE](LICENSE)** file for the full terms and the **[NOTICE](NOTICE)** file for copyright and attribution details.
