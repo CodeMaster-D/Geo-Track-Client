@@ -1,5 +1,3 @@
-
-
 # Tracking Maps with React.js, Vite, and Tailwind CSS
 
 This project is a web application focused on map tracking, built by leveraging the power and efficiency of React.js, Vite, and Tailwind CSS. The goal is to provide an interactive and visual interface for displaying and manipulating location information.
