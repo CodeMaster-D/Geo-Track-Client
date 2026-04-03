@@ -1,5 +1,8 @@
 # Tracking Maps with React.js, Vite, and Tailwind CSS
-
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 This project is a web application focused on map tracking, built by leveraging the power and efficiency of React.js, Vite, and Tailwind CSS. The goal is to provide an interactive and visual interface for displaying and manipulating location information.
 
 ## Main Technologies
