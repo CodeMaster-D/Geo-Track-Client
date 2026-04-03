@@ -5,6 +5,13 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 This project is a web application focused on map tracking, built by leveraging the power and efficiency of React.js, Vite, and Tailwind CSS. The goal is to provide an interactive and visual interface for displaying and manipulating location information.
 
+## Table of Contents
+
+- [Main Technologies](#main-technologies)
+- [Possible Features](#possible-features-confirmation-needed-from-the-original-project)
+- [How to Run the Project Locally](#how-to-run-the-project-locally)
+- [License](#license)
+
 ## Main Technologies
 
 This project uses a combination of modern technologies for fast and efficient web development:
